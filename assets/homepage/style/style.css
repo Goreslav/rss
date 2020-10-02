@@ -1,0 +1,225 @@
+.login-icon-wrapper {
+   position: absolute;
+    z-index: 999;
+    right: 300px;
+    top: 25px;
+}
+ .login-icon {
+     color: white;
+     font-size: x-large;
+ }
+
+.log-in-container{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+
+.log-in {
+    position: relative;
+    margin-left: auto;
+    z-index: 100;
+}
+
+.log-in a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    opacity: 0.5;
+    padding: 30px 40px;
+    transition: all 0.3s ease;
+    float: right;
+}
+
+.log-in a:hover {
+    opacity: 1;
+}
+
+.log-in .far {
+    font-size: 28px;
+    top: 26px;
+    position: fixed;
+    background: #0009;
+    padding: 2.5px;
+    border-radius: 20px;
+}
+.full-screen {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.log-in-container{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+
+.log-in {
+    position: relative;
+    margin-left: auto;
+    z-index: 100;
+}
+
+.log-in a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    opacity: 0.5;
+    padding: 30px 40px;
+    transition: all 0.3s ease;
+    float: right;
+}
+
+.log-in a:hover {
+    opacity: 1;
+}
+
+.logo a img:hover {
+    color: rgba(245, 245, 220, 1);
+    transform: scale(1.05);
+}
+
+.log-in .far {
+    font-size: 28px;
+    top: 26px;
+    position: fixed;
+    background: #0009;
+    padding: 2.5px;
+    border-radius: 20px;
+}
+
+#ModalWindow {
+    z-index: 100000;
+}
+
+.modalwindow {
+    background: #f8f8f8;
+    border-radius: 0;
+    margin: 0px 18px;
+    border: none;
+}
+
+.modal-body {
+    padding: 20px 40px;
+}
+
+.modal-footer {
+    padding: 1rem 0rem;
+    border-top: 0px solid #e9ecef;
+}
+
+.modal-header {
+    border-bottom: 0px;
+    position: relative;
+    justify-content: center;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+}
+
+.modal-field {
+    display: block;
+    width: 100%;
+    line-height: 47px;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid rgba(0,0,0, .25);
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: none;
+    color: #000;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    padding: 0 0px;
+}
+
+.modal-field:hover {
+    border-bottom: 1px solid #0e0e0e;
+}
+
+.modal-field:focus {
+    outline: unset;
+}
+
+.form-group label {
+    text-transform: uppercase;
+    font-size: 12px;
+    opacity: 0.75;
+    top: -1px;
+    position: relative;
+}
+
+.btn-modal {
+    display: block;
+    width: 100%;
+    line-height: 47px;
+    font-size: 17px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #f2f2f2;
+    background: rgba(34,34,34, .9);
+    letter-spacing: 2px;
+    transition: all 0.2s ease;
+    padding: 8px 20px 8px;
+    cursor: pointer;
+    border: 0px;
+    border-radius: 0px;
+}
+.btn-success {
+    margin: 1rem 0rem;
+}
+
+.btn-modal:hover {
+    color: #f2f2f2;
+    background: rgba(34,34,34, 1);
+}
+
+.btn-modal-login {
+    display: block;
+    width: 100%;
+    line-height: 47px;
+    font-size: 17px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #f2f2f2;
+    background: rgba(34,34,34, .9);
+    letter-spacing: 2px;
+    transition: all 0.2s ease;
+    padding: 8px 20px 8px;
+    cursor: pointer;
+    border: 0px;
+}
+
+.btn-modal-login:hover {
+    color: #f2f2f2;
+    background: rgba(34,34,34, 1);
+}
+
+.form-check {
+    text-align: center;
+}
+
+.modal-footer {
+    border-top: 0px;
+}
+
+.registration {
+    position: absolute;
+    top: 26px;
+    z-index: 1;
+    right: 100px;
+    background-color: #718C00;
+}
+
+.registration > button.button-news.btn-large {
+    padding: 6px 30px;
+    font-size: 13px;
+    margin-top: 0;
+    line-height: normal;
+}

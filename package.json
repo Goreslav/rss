@@ -1,0 +1,37 @@
+{
+    "devDependencies": {
+        "@fortawesome/fontawesome-free": "^5.14.0",
+        "@symfony/webpack-encore": "^0.30.0",
+        "bootstrap": "^4.5.0",
+        "core-js": "^3.0.0",
+        "exports-loader": "^1.1.0",
+        "regenerator-runtime": "^0.13.2",
+        "stylus": "^0.54.7",
+        "stylus-loader": "^3.0.2",
+        "ts-loader": "^5.3.0",
+        "typescript": "^3.9.6",
+        "vue": "^2.5",
+        "vue-loader": "^15",
+        "vue-template-compiler": "^2.6.11",
+        "webpack": "^4.44.0",
+        "webpack-notifier": "^1.6.0"
+    },
+    "license": "UNLICENSED",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^1.2.29",
+        "@fortawesome/free-solid-svg-icons": "^5.13.1",
+        "@fortawesome/vue-fontawesome": "^0.1.10",
+        "axios": "^0.19.2",
+        "bootstrap-vue": "^2.15.0",
+        "jquery": "^3.5.1",
+        "moment": "^2.27.0",
+        "vue-axios": "^2.1.5"
+    }
+}
