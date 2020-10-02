@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Feeds{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('feed') }}
+{% endblock %}
+{% block body %}
+
+<div class="container-full">
+    <div>
+           <h1>hello feed</h1>
+    </div>
+</div>
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('feed') }}
+{% endblock %}
+{% endblock %}

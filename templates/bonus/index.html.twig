@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bonus{% endblock %}
+    {% block stylesheets %}
+         {{ encore_entry_link_tags('bonus-vue') }}
+    {% endblock %}
+{% block body %}
+
+    <div class="container-full">
+        <div
+                id="bonus-app"
+                data-csrf_token="{{ csrf_token('bonus') }}"
+                data-apiUrl="{{ apiUrl }}"
+        ></div>
+    </div>
+    {% block javascripts %}
+        {{ encore_entry_script_tags('bonus-vue') }}
+    {% endblock %}
+
+{% endblock %}

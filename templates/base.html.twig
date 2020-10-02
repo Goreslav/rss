@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block head %}
+            {% include './head.html.twig' %}
+        {% endblock %}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('general') }}
+        {% endblock %}
+
+
+    </head>
+    <body>
+    {% block header %}
+        {% block authButtons %}
+
+            {% if app.user %}
+                <span class="logout">
+            <a  href="{{ path('app_logout') }}"
+                class="btn button-news btn-medium">odhlasenie</a></span>
+            {% else %}
+                <div class="login-icon-wrapper">
+                    <a href="{{ url('app_login') }}" class="login-icon">
+                        <span class="far fa-user-circle"></span>
+                    </a>
+                </div>
+            {% endif %}
+
+        {% endblock %}
+    {% endblock %}
+
+    {% block body %}{% endblock %}
+        {% block footer %}{% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('general') }}
+    {% endblock %}
+    </body>
+</html>

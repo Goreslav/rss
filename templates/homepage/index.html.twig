@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}reader{% endblock %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('homepage') }}
+{% endblock %}
+
+{% block header %}
+    {{ parent() }}
+    {% include 'homepage/header.html.twig' %}
+{% endblock %}
+
+
+{% block body %}
+    {% if not app.user %}
+    <div class="registration">
+                    <a href="{{ url('registration') }}"
+                            class="btn button-news btn-large">Registracia</a>
+                </div>
+    {% endif %}
+
+
+    {% if message is defined and message  %}
+        <div class="container">
+            <button type="button" class="d-none" id="messageModal" data-toggle="modal" data-target="#myModal"></button>
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <div class="modal-content">
+                        <div class="modal-header text-center">
+                            <h4 class="modal-title">{{ message }}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <script type="text/javascript">
+            document.onreadystatechange = function () {
+                document.getElementById('messageModal').click()
+            }
+        </script>
+
+    {% endif %}
+
+
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('homepage') }}
+{% endblock %}
