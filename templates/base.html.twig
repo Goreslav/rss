@@ -9,25 +9,24 @@
         {% block stylesheets %}
             {{ encore_entry_link_tags('general') }}
         {% endblock %}
-
-
     </head>
     <body>
     {% block header %}
         {% block authButtons %}
 
             {% if app.user %}
+                <div class="login-icon-wrapper">
                 <span class="logout">
             <a  href="{{ path('app_logout') }}"
                 class="btn button-news btn-medium">odhlasenie</a></span>
+                </div>
             {% else %}
-                <div class="login-icon-wrapper">
+    <div class="login-icon-wrapper">
                     <a href="{{ url('app_login') }}" class="login-icon">
                         <span class="far fa-user-circle"></span>
                     </a>
-                </div>
+    </div>
             {% endif %}
-
         {% endblock %}
     {% endblock %}
 

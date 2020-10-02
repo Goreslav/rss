@@ -45,9 +45,9 @@ header {
 }
 .logout {
     position: absolute;
-    top: 26px;
+    top: 9px;
     z-index: 1;
-    right: 100px;
+    right: 80px;
     background-color: #718C00;
 }
 

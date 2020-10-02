@@ -3,8 +3,6 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -12,12 +10,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomepageController extends AbstractController
 {
 
-
-
-    public function __construct()
-    {
-
-    }
+    /**
+     * @var string
+     */
+    private $text= '';
 
     /**
      * @Route("/", name="homepage")
@@ -25,28 +21,25 @@ class HomepageController extends AbstractController
      */
     public function indexAction(): Response
     {
+        $this->text= 'Candy canes marzipan chocolate cake gummies jelly-o.';
 
-        $message = '';
-        $username = '';
-        $loginMessage = '';
-
-        if (!empty($_GET['last_username'])) {
-            $username = $_GET['last_username'];
-
-        }
-        if (!empty( $_GET['error'])) {
-            $loginMessage = $_GET['error'];
-        }
-
-        if (!empty($_GET['message'])) {
-            $message= $_GET['message'];
-        }
 
         return $this->render('homepage/index.html.twig',
             [
-                'last_username' => $username,
-                'error' => $loginMessage,
-                'message'=> $message
+                'text'=> $this->duplicateText(10)
             ]);
+    }
+
+    /**
+     * @param int $count
+     * @return array
+     */
+    private function duplicateText(int $count): array
+    {
+        $result = [];
+        for ($x = 0; $x <= $count; $x++) {
+            $result[]= $this->text;
+        }
+        return $result;
     }
 }
