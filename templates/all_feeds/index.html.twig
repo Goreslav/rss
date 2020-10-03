@@ -4,24 +4,26 @@
 
 {% block body %}
 {% set get = '?url=' %}
-
-{% dump (feeds) %}
-
-    <div class=" p-5">
+    <div class="p-5">
     <div class="list-group">
-
-                {% for feed in feeds %}
-                    <a href=" {{url('read_feed') ~ get ~  feed.link }}" class="list-group-item list-group-item-action flex-column align-items-start">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">{{ feed.name }}</h5>
-                        </div>
-                    </a>
-
-                {% endfor %}
-
-
-
-
+        {% for feed in feeds %}
+            <div class="list-group-item list-group-item-action">
+                <a href=" {{url('read_feed') ~ get ~  feed.link }}" class="  ">
+                    <div class="d-flex w-80 justify-content-between">
+                        <h5>{{ feed.name }}</h5>
+                    </div>
+                </a>
+                <div>
+                    <form class='' action='{{ url('feed_edit') }}' method='post'>
+                        <input type='hidden' name= 'id' value= '{{ feed.id }}'>
+                        <input type='hidden' name= 'backTrace' value= '{{ app.request.pathinfo }}'>
+                        <button  class='btn btn-warning ' name='decision' value='edit' >zmen meno feedu</button>
+                        <button  class='btn btn-success ' name='decision' value='favorite' >pridaj do oblubene</button>
+                        <button class='btn btn-danger ' name='decision' value='delete' >zmaz feed</button>
+                    </form>
+                </div>
+             </div>
+        {% endfor %}
     </div>
 </div>
 

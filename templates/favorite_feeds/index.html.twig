@@ -3,5 +3,35 @@
 {% block title %}Hello FavoridFeedsController!{% endblock %}
 
 {% block body %}
+    {% set get = '?url=' %}
 
+    <div class="p-5">
+        <div class="list-group">
+            {% for feed in feeds %}
+                <div class="list-group-item list-group-item-action">
+                    <a href=" {{url('read_feed') ~ get ~  feed.link }}" class="  ">
+                        <div class="d-flex w-80 justify-content-between">
+                            <h5>{{ feed.name }}</h5>
+                        </div>
+                    </a>
+                    <div>
+                        <form class='' action='{{ url('feed_edit') }}' method='post'>
+                            <input type='hidden' name= 'id' value= '{{ feed.id }}'>
+                            <button  class='btn btn-warning ' name='decision' value='edit' >zmen meno feedu</button>
+                            {% if not (app.request.uri == url('favorite_feeds') )%}
+                                <button  class='btn btn-success ' name='decision' value='favorite' >oblubene</button>
+                            {% endif %}
+                            <button class='btn btn-danger ' name='decision' value='delete' >zmaz feed</button>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% for message in app.flashes('warning') %}
+        <div class="alert alert-warning text-center">
+            {{ message }}
+        </div>
+    {% endfor %}
 {% endblock %}
