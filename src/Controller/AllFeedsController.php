@@ -11,22 +11,21 @@ class AllFeedsController extends FeedController
     /**
      * @var array
      */
-    private $feeds= [];
+    private $allFeeds= [];
     /**
      * @Route("/feed/all/", name="all_feeds")
      * @return Response
      */
     public function AllFeedAction(): Response
     {
-        $this->getgetAllFedds();
+        $this->getAllFeeds();
         return $this->render('all_feeds/index.html.twig', [
             'links' => $this->feedNavLinks(),
-            'feeds' => $this->feeds
+            'feeds' =>$this->allFeeds,
         ]);
     }
 
-
-    private function getgetAllFedds(): void
+    private function getAllFeeds(): void
     {
         $query= $this->getDoctrine()->getRepository(Feeds::class);
         $feeds= $query->findAll();
@@ -34,6 +33,7 @@ class AllFeedsController extends FeedController
         if (empty($feeds)) {
             $this->addFlash('warning', 'ziadne linky');
         }
-        $this->feeds= $feeds;
+        $this->allFeeds= $feeds;
     }
+
 }
