@@ -28,6 +28,9 @@ class RegistrationController extends AbstractController
      */
     public function index(Request $request)
     {
+        if (!empty($this->getUser())){
+            return $this->redirectToRoute('feed');
+        }
         $user = new User();
 
         $form = $this->createForm(UserType::class, $user);

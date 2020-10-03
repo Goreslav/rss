@@ -1,7 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Log in!{% endblock %}
-{% block authButtons %} {% endblock %}
+{% block authButtons %}
+    <a href="{{ url('homepage') }}" class="home-btn">
+        <button class="btn btn-danger">home</button>
+    </a>
+{% endblock %}
 {% block body %}
     <div class="container">
         <div class="row">
