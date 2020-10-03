@@ -43,6 +43,7 @@ class AddFeedController extends FeedController
 
 
                 $em = $this->getDoctrine()->getManager();
+                $feed->setUserId($this->getUser()->getId());
                 $em->persist($feed);
                 $em->flush();
 

@@ -21,6 +21,7 @@ class User implements UserInterface
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
+     * @ORM\ManyToOne(targetEntity="App\Entity\User",inversedBy="Feeds")
      * @ORM\Column(type="integer")
      */
     private $id;
