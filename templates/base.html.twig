@@ -30,8 +30,15 @@
         {% endblock %}
     {% endblock %}
 
-    {% block body %}{% endblock %}
-        {% block footer %}{% endblock %}
+    {% block navigation %}
+    {% endblock %}
+
+    {% block body %}
+    {% endblock %}
+
+
+    {% block footer %}
+    {% endblock %}
 
     {% block javascripts %}
         {{ encore_entry_script_tags('general') }}
