@@ -2,23 +2,62 @@
 
 {% block title %}AddFeed!{% endblock %}
 
+{% set editName = '' %}
+{% set editLink = '' %}
+{% if (linkToEdit is defined) and linkToEdit  %}
+    {% set editLink = linkToEdit %}
+{% endif %}
+
+{% if (nameToEdit is defined) and nameToEdit  %}
+    {% set editName = nameToEdit %}
+{% endif %}
+
+{#{% dump editName %}#}
+{#{% dump editLink %}#}
+{#{% dump id %}#}
 {% block body %}
     <div class="container">
         <div class="row">
             <div class="col-md-12 ml-md-auto">
                 <div class="card bg-light mb-3 mt-5" >
                     <div class="card-body">
+                        {% if id is defined and id %}
+
+                            <div class="card-header mb-3">edituj link </div>
+                        <form method="post" action="{{ url('change_feed_data') }}">
+                                <div class="col-md-12 mb-3">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">meno linku</label>
+                                        <input type="text"  name="name" class="form-control" value="{{ name }}">
+                                    </div>
+                            </div>
+                            <div class="form_group">
+                                <div class="col-md-12 mb-3">
+                                        <label for="exampleFormControlTextarea1"> link</label>
+                                        <input type="text" name="link" class="form-control" id="description-textArea"
+                                                value="{{link }}"  >
+                                    </div>
+
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" name="id" value="{{ id }}">
+                                <div class="col-md-8 col-md-offset-4" style="margin-top:5px;">
+                                    <button type="submit" class="btn btn-primary"> uloz
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        {% else %}
                         <div class="card-header mb-3">pridaj link </div>
                         {{ form_start(form) }}
                         <div class="form_group">
                             <div class="col-md-12 mb-3">
-                                {{ form_row(form.name, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_row(form.name, {'attr': {'class': 'form-control','value':editName} }) }}
                             </div>
                         </div>
                         <div class="form_group">
                             <div class="col-md-12 mb-3">
-                                {{ form_row(form.link, {'attr': {'class':
-                                    'form-control'}}) }}
+                                {{ form_row(form.link, {'attr': {'class':'form-control','value':editLink}}) }}
                             </div>
                         </div>
                         <div class="form-group">
@@ -29,6 +68,7 @@
                         </div>
                         {{ form_end(form) }}
                     </div>
+                    {% endif %}
                 </div>
                 {% for message in app.flashes('success') %}
                     <div class="alert alert-success">

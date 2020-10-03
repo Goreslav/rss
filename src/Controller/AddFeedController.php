@@ -17,6 +17,21 @@ class AddFeedController extends FeedController
      */
     public function addFeedAction(Request $request): Response
     {
+        $id='';
+        $name = '';
+        $link = '';
+        if (($request->query !== null) && $request->query->all()!== []) {
+            $formData = $request->query;
+            $id = $formData->all()['id'];
+            $entityManager = $this->getDoctrine()->getManager();
+            $feed = $entityManager->getRepository(Feeds::class)->find($id);
+            if ($feed!== null && !empty($feed) ) {
+                $name = $feed->getName();
+                $link = $feed->getLink();
+            }
+
+        }
+
         $feed = new Feeds();
         $form = $this->createForm(FeedType::class, $feed);
         $form->handleRequest($request);
@@ -45,7 +60,9 @@ class AddFeedController extends FeedController
         return $this->render('add_feed/index.html.twig', [
             'links' => $this->feedNavLinks(),
             'form' => $form->createView(),
-
+            'id'=>$id,
+            'name'=> $name,
+            'link'=> $link
         ]);
     }
 
