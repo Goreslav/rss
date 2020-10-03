@@ -5,9 +5,6 @@
 {% block body %}
 {% set get = '?url=' %}
     <div class="p-5">
-       <div class="text-center">
-           <input type="text" id="myInput" onkeyup="myFunction()" placeholder="hladaj nazov" title="pis">
-       </div>
 
     <ul class="list-group" id="list">
         {% for feed in feeds %}
@@ -30,26 +27,6 @@
         {% endfor %}
     </ul>
 </div>
-    <script>
-        function myFunction() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("list");
-            tr = table.getElementsByTagName("li");
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("h5")[0];
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
-    </script>
 
     {% for message in app.flashes('warning') %}
         <div class="alert alert-warning text-center">
