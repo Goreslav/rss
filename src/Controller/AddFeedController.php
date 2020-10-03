@@ -49,17 +49,4 @@ class AddFeedController extends FeedController
         ]);
     }
 
-    /**
-     * @param $url
-     * @return mixed
-     * @throws \Exception
-     */
-    private function validateUrl($url)
-    {
-        $url = filter_var($url, FILTER_SANITIZE_URL);
-        if (!filter_var($url, FILTER_VALIDATE_URL)) {
-            throw new \RuntimeException('');
-        }
-
-    }
 }

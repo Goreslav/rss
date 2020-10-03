@@ -19,22 +19,37 @@ class FeedsRepository extends ServiceEntityRepository
         parent::__construct($registry, Feeds::class);
     }
 
-    // /**
-    //  * @return Feeds[] Returns an array of Feeds objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param $value
+     * @return Feeds[] Returns an array of Feeds objects
+     */
+
+    public function findByExampleField($value): array
     {
         return $this->createQueryBuilder('f')
             ->andWhere('f.exampleField = :val')
             ->setParameter('val', $value)
             ->orderBy('f.id', 'ASC')
-            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
+//    /**
+//     * @param $value
+//     * @return Feeds[] Returns an array of Feeds objects
+//     */
+//
+//    public function findByExampleField($value): array
+//    {
+//        return $this->createQueryBuilder('f')
+//            ->andWhere('f.exampleField = :val')
+//            ->setParameter('val', $value)
+//            ->orderBy('f.id', 'ASC')
+//            ->getQuery()
+//            ->getResult()
+//            ;
+//    }
 
     /*
     public function findOneBySomeField($value): ?Feeds
