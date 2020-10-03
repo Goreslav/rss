@@ -1,0 +1,61 @@
+{% extends 'feed/index.html.twig' %}
+
+{% block title %}vyhladavanie!{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('feed') }}
+{% endblock %}
+{% block body %}
+    {% set get = '?url=' %}
+
+    <form action="{{ url('search') }}"  method="post" class="form-inline d-flex justify-content-center md-form form-sm mt-0">
+    <i class="fas fa-search" aria-hidden="true"></i>
+    <input autofocus  class="form-control form-control-sm ml-3 w-75" name="searchBar" type="text" placeholder="Search"
+           aria-label="Search" >
+    </form>
+
+
+
+{#    <ul class="list-group" id="list">#}
+{#        {% for feed in feeds %}#}
+{#            <li class="list-group-item list-group-item-action" id="row">#}
+{#                <a href=" {{url('read_feed') ~ get ~  feed.link }}" class="  ">#}
+{#                    <div class="d-flex w-80 justify-content-between">#}
+{#                        <h5>{{ feed.name }}</h5>#}
+{#                    </div>#}
+{#                </a>#}
+{#                <div>#}
+{#                    <form class='' action='{{ url('feed_edit') }}' method='post'>#}
+{#                        <input type='hidden' name= 'id' value= '{{ feed.id }}'>#}
+{#                        <input type='hidden' name= 'backTrace' value= '{{ app.request.pathinfo }}'>#}
+{#                        <button  class='btn btn-warning ' name='decision' value='edit' >zmen meno feedu</button>#}
+{#                        <button  class='btn btn-success ' name='decision' value='favorite' >pridaj do oblubene</button>#}
+{#                        <button class='btn btn-danger ' name='decision' value='delete' >zmaz feed</button>#}
+{#                    </form>#}
+{#                </div>#}
+{#            </li>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+{#    </div>#}
+
+{#    {% for message in app.flashes('warning') %}#}
+{#        <div class="alert alert-warning text-center">#}
+{#            {{ message }}#}
+{#        </div>#}
+{#    {% endfor %}#}
+
+
+
+
+
+
+
+
+
+
+    {% block javascripts %}
+            {{ parent() }}
+            {{ encore_entry_script_tags('feed') }}
+        {% endblock %}
+{% endblock %}

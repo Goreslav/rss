@@ -13,6 +13,7 @@ class Feeds
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
+     * @ORM\OneToMany(targetEntity="App\Entiy\Feeds",mappedBy="User")
      * @ORM\Column(type="integer")
      */
     private $id;
@@ -31,6 +32,11 @@ class Feeds
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $status;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $userId;
 
     public function getId(): ?int
     {
@@ -69,6 +75,18 @@ class Feeds
     public function setStatus(?string $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getUserId(): ?int
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(int $userId): self
+    {
+        $this->userId = $userId;
 
         return $this;
     }

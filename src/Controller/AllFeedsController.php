@@ -28,7 +28,7 @@ class AllFeedsController extends FeedController
     private function getAllFeeds(): void
     {
         $query= $this->getDoctrine()->getRepository(Feeds::class);
-        $feeds= $query->findAll();
+        $feeds= $query->findBy(['userId'=>$this->getUser()->getId()]);
 
         if (empty($feeds)) {
             $this->addFlash('warning', 'ziadne linky');

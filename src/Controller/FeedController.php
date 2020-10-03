@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Feeds;
-use App\Form\FeedType;
 use Feed;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -107,7 +106,6 @@ class FeedController extends AbstractController
      */
     public function changeAction(Request $request): Response
     {
-        dump($request);
         if ($request->request->get('id') !== null) {
             $formData = $request->request;
             $id = $formData->get('id');
