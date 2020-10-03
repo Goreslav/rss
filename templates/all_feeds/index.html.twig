@@ -4,4 +4,34 @@
 
 {% block body %}
 
+
+
+
+    <div class=" p-5">
+    <div class="list-group">
+        {% for feed in feeds %}
+            <a href="{{ feed.link }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{ feed.name }}</h5>
+                    <small class="text-muted">3 days ago</small>
+                </div>
+            </a>
+
+        {% endfor %}
+{#        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">#}
+{#            <div class="d-flex w-100 justify-content-between">#}
+{#                <h5 class="mb-1">List group item heading</h5>#}
+{#                <small class="text-muted">3 days ago</small>#}
+{#            </div>#}
+{#            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>#}
+{#            <small class="text-muted">Donec id elit non mi porta.</small>#}
+{#        </a>#}
+    </div>
+</div>
+
+    {% for message in app.flashes('warning') %}
+        <div class="alert alert-warning text-center">
+            {{ message }}
+        </div>
+    {% endfor %}
 {% endblock %}

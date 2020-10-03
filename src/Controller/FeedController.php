@@ -26,7 +26,8 @@ class FeedController extends AbstractController
     {
         return [
             'oblubene' => 'favorite_feeds',
-            'vsetky' => 'all_feeds'
+            'vsetky' => 'all_feeds',
+            'pridaj' => 'add_feed'
         ];
     }
 }
