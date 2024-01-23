@@ -34,32 +34,4 @@ class FeedsRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-
-//    /**
-//     * @param $value
-//     * @return Feeds[] Returns an array of Feeds objects
-//     */
-//
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('f')
-//            ->andWhere('f.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('f.id', 'ASC')
-//            ->getQuery()
-//            ->getResult()
-//            ;
-//    }
-
-    /*
-    public function findOneBySomeField($value): ?Feeds
-    {
-        return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Controller;
-
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,27 +11,27 @@ class ReadFeedController extends FeedController
      * @param Request $request
      * @return Response
      */
-    public function FeedDetailAction(Request $request): Response
+    public function feedDetailAction(Request $request): Response
     {
-        if ($request->query->all() !== [])
-        {
-            $url = $request->query->all()['url'];
-            $checked = filter_var($url, FILTER_SANITIZE_URL);
-            if (!filter_var($checked, FILTER_VALIDATE_URL)) {
-                $this->redirectToRoute('all_feeds');
-            }
-            $feedData = $this->parseRssFeed($url);
+        $requestData = $request->query->all();
 
-            if (!empty($feedData))
-            return $this->render('read_feed/index.html.twig', [
-                'links'=>$this->feedNavLinks(),
-                'feedData' => $feedData,
-            ]);
-        } else {
-            (
-            $this->redirectToRoute('all_feeds')
-            );
+        if ($requestData !== [])
+        {
+            try {
+                $url = $this->ensureUrlIsValid($requestData['url']);
+                $feedData = $this->parseRssFeed($url);
+                if (!empty($feedData))
+                {
+                    return $this->render('read_feed/index.html.twig', [
+                        'links'=>$this->feedNavLinks(),
+                        'feedData' => $feedData,
+                    ]);
+                }
+            } catch (\RuntimeException $exception) {
+                // log exception message if required
+            }
         }
+
         return $this->redirectToRoute('all_feeds');
     }
 }
